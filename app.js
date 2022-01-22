@@ -23,13 +23,6 @@ const MONGODB_URL = process.env.MONGODB_URL
 
 app.use(cors());
 
-// Not adding the connection string; have the const above
-// mongoose 
-//     .connect(MONGODB_URL)
-//     .then(() => console.log("Connected to database"))
-//     .catch(err => console.error(err));
-
-
 mongoose.connect(MONGODB_URL, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
@@ -112,7 +105,30 @@ const schema = new GraphQLSchema({
         },
       },
     }),
+
+    // // Mutation 2
+    // mutation: update(GraphQLObjectType({
+    //   name: "Update",
+    //   fields: {
+    //     people: {
+    //       type: PersonType,
+    //       args: {
+    //         firstName: { type: GraphQLString },
+    //         lastName: { type: GraphQLString },
+    //       },
+    //       resolve: (root, args, context, info) => {
+    //         var people = new PersonModel(args);
+    //         return people.save();
+    //       },
+    //     },
+    //   },
+    // }),
+
+    
   });
+
+
+
 
 
 // Port details
